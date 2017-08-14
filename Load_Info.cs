@@ -1,4 +1,4 @@
-﻿using first_mvvm.Model;
+using first_mvvm.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,13 +12,13 @@ namespace first_mvvm
 {
     class Load_Info
     {
-        public static ObservableCollection<Person> load_complete_info()
+        public static ObservableCollection<Person> load_complete_info(string filename)
         {
             XmlSerializer xs2 = new XmlSerializer(typeof(ObservableCollection<Person>));
             ObservableCollection<Person> complete_info_list = null;
             try
             {
-                using (Stream s = File.OpenRead("data1.xml"))
+                using (Stream s = File.OpenRead(filename))
                 {
                     complete_info_list = xs2.Deserialize(s) as ObservableCollection<Person>;
                 }
